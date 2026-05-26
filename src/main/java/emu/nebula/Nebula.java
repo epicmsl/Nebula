@@ -280,11 +280,21 @@ public class Nebula {
     
     // Utils
 
+    private static long timeOffset;
+
     /**
      * Returns the current server time in seconds
      */
     public static long getCurrentServerTime() {
-        return System.currentTimeMillis() / 1000;
+        return (System.currentTimeMillis() / 1000) + timeOffset;
+    }
+
+    public static void setTimeOffset(long offset) {
+        timeOffset = offset;
+    }
+
+    public static long getTimeOffset() {
+        return timeOffset;
     }
     
     // Console
